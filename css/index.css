@@ -1,0 +1,27 @@
+body{
+	background-color: #111;
+}
+
+div {
+    height: 200px;
+    width:1000px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -500px;
+}
+
+p {
+	color: #ccc;
+}
+
+.heading {
+	font-family: 'Raleway', sans-serif;
+	font-size: xx-large;
+}
+
+.message {
+	font-family: 'Roboto', sans-serif;
+	font-size: large;
+}
