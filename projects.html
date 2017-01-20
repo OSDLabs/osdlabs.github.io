@@ -64,12 +64,12 @@
           </p>
 
           <ul class="tags">
-            <li><a href="#" class="tag">Django</a></li>
-            <li><a href="#" class="tag">PostgreSQL/SQLite</a></li>
-            <li><a href="#" class="tag">Firebase</a></li>
-            <li><a href="#" class="tag">JQuery</a></li>
-            <li><a href="#" class="tag">HTML5</a></li>
-            <li><a href="#" class="tag">CSS3</a></li>
+            <li><span class="tag">Django</span></li>
+            <li><span class="tag">PostgreSQL/SQLite</span></li>
+            <li><span class="tag">Firebase</span></li>
+            <li><span class="tag">JQuery</span></li>
+            <li><span class="tag">HTML5</span></li>
+            <li><span class="tag">CSS3</span></li>
           </ul>
 
         </li>
@@ -79,8 +79,8 @@
             A cross platform application, conceptualised and developed entirely at OSD Labs, to facilitate easier, automatic, logins for the WiFi at BITS Goa.
           </p>
           <ul class="tags">
-            <li><a href="#" class="tag">NodeJS</a></li>
-            <li><a href="#" class="tag">Electron</a></li>
+            <li><span class="tag">NodeJS</span></li>
+            <li><span class="tag">Electron</span></li>
 
           </ul>
         </li>
@@ -90,9 +90,9 @@
             An application meant to be hosted over any semi-public network (such as the BITS Goa LAN) to facilitate fast music streaming over the intranet. Conceptualised and created exclusively by OSD Labs.
           </p>
           <ul class="tags">
-            <li><a href="#" class="tag">NodeJS</a></li>
-            <li><a href="#" class="tag">Electron</a></li>
-            <li><a href="#" class="tag">BackboneJS</a></li>
+            <li><span class="tag">NodeJS</span></li>
+            <li><span class="tag">Electron</span></li>
+            <li><span class="tag">BackboneJS</span></li>
           </ul>
         </li>
         <li>
@@ -101,11 +101,11 @@
             Quark is the annual technical fest of BITS Goa. OSD Labs developed the code for the website used for the 2017 edition of the fest.
           </p>
           <ul class="tags">
-            <li><a href="#" class="tag">Django</a></li>
-            <li><a href="#" class="tag">PostgreSQL/SQLite</a></li>
-            <li><a href="#" class="tag">JQuery</a></li>
-            <li><a href="#" class="tag">HTML5</a></li>
-            <li><a href="#" class="tag">CSS3</a></li>
+            <li><span class="tag">Django</span></li>
+            <li><span class="tag">PostgreSQL/SQLite</span></li>
+            <li><span class="tag">JQuery</span></li>
+            <li><span class="tag">HTML5</span></li>
+            <li><span class="tag">CSS3</span></li>
           </ul>
         </li>
         <li>
@@ -114,10 +114,10 @@
             MATKA is the Gaming Competition held during Quark OSD Labs developed the code for the website used for the 2017 edition of the matka.
           </p>
           <ul class="tags">
-            <li><a href="#" class="tag">Express</a></li>
-            <li><a href="#" class="tag">Firebase</a></li>
-            <li><a href="#" class="tag">Handlebars</a></li>
-            <li><a href="#" class="tag">CSS3</a></li>
+            <li><span class="tag">Express</span></li>
+            <li><span class="tag">Firebase</span></li>
+            <li><span class="tag">Handlebars</span></li>
+            <li><span class="tag">CSS3</span></li>
           </ul>
         </li>
       </ul>
@@ -159,7 +159,11 @@
       position: relative;
       margin: 0 10px 10px 0;
       text-decoration: none;
+      cursor: default;
       -webkit-transition: color 0.2s;
+      -webkit-transition: background 0.2s;
+      transition: color 0.2s;
+      transition: background 0.2s;
     }
     
     .tag::before {
