@@ -1,0 +1,417 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Git Primer</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-markdown>
+					<script type="text/template">
+						# Git Primer
+
+						### Courtesy: OSD Labs
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Version Control
+
+						* In real life projects, a lot of people contribute to the codebase **simultaneously**
+						* We need a way to maintain history of the changes made to the codebase
+						* Enter, Version Control Systems (VCS)
+						* git is one of the many VCS available out there - very widely used in open source. Others include Mercurial(hg) and Subversion (SVN)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# git - brief history
+
+						* Initially, Linux used BitKeeper, a proprietory VCS. The copyright holder of BitKeeper withdrew free use.
+						* Linus was looking for an existing open source VCS with similar features but he didn't find any.
+						* Thus, he wrote one himself - git
+
+						> I'm an egotistical bastard, and I name all my projects after myself. First 'Linux', now 'git' - Linus Torvalds.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# A few terms
+
+						* **Repository**: think of it like a directory whose contents (which may be code, images, anything) you want to be version controlled
+						* **GitHub**: a platform that allows you to host your git repositories so that they may be accessed by others. *Note*: there are other platforms out there which do the same - eg. BitBucket
+						* you'd come across more terms as we proceed...
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Installation
+
+						`git` is widely available in all the linux distributions. Depending upon the one you're using, execute the following to install git
+						```bash
+						sudo apt-get install git # Debian, Ubuntu, Mint, Elementary
+						sudo dnf install git # Fedora
+						sudo pacman -S git # ArchLinux
+						```
+
+						Windows and OS X users might may download installation package from
+						[https://git-scm.com/downloads](https://git-scm.com/downloads)
+
+						To check if it's installed, try the following on terminal/command prompt
+						```bash
+						$ git --version
+						git version 2.10.2
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Creating a Repository
+
+						* Now that `git`'s installed, let's **init**ialize a repository. Open the terminal and create a directory for your repository, then create the git repo
+						```bash
+						$ mkdir myproject
+						$ cd myproject
+						$ git init
+						Initialized empty Git repository in /home/gaurav/myproject
+						```
+						* If you observe carefully, you'd see that the last command created a hidden directory named `.git` in the myproject folder
+						```bash
+						$ ls -al
+						total 12
+						drwxr-xr-x 3 gaurav gaurav 4096 Nov 11 20:47 .
+						drwxr-xr-x 3 gaurav gaurav 4096 Nov 11 20:47 ..
+						drwxr-xr-x 7 gaurav gaurav 4096 Nov 11 20:47 .git
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Adding a file
+
+						* Now, try saving a file in your repository. Perhaps a README is a good choice.
+						* Once saved, try executing the following command
+
+						```
+						$ git status
+						On branch master
+
+						Initial commit
+
+						Untracked files:
+						(use "git add <file>..." to include in what will be committed)
+
+						README
+
+						nothing added to commit but untracked files present (use "git add" to track)
+						```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Adding a file
+
+						* Now let's track the file by executing git add then see the updated status
+
+						```
+						$ git add README
+						$ git status
+						On branch master
+
+						Initial commit
+
+						Changes to be committed:
+						  (use "git rm --cached <file>..." to unstage)
+
+							new file:   README
+
+						```
+						Great, now git tracks the README file for changes. Once we're happy with the content of README, we can `commit` it.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Committing
+
+						* Think of a commit as a snapshot of your work which you'd like to keep track of.
+						* When do you commit? When you feel the changes you've made since the last commit are significant and **stable** enough.
+
+						```bash
+						$ git commit -m "Initial Commit"
+						```
+						The `-m` flag is followed by the commit message which appears in the logs. Go ahead, try executing
+
+						```bash
+						$ git log
+						```
+
+						* Note you may exclude the `-m` flag and the message in the command. In that case git will open the default editor to prompt you for the message
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Making Changes
+
+						* Now that you're done with your first commit, let's try making some changes to README and see if git gets a hold of it
+
+						```bash
+						$ git status
+						```
+
+						* Hmm, what's changed?
+
+						```bash
+						$ git diff
+						```
+
+						* Once you're happy with the changes, add and commit
+
+						```bash
+						$ git add . # . is a wildcard for add everything
+						$ git commit -m "Some Message"
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Checking difference between commits
+						```bash
+						$ git diff HEAD~1 HEAD # HEAD points to latest commit. HEAD~1 to second latest...
+						```
+						### The Cycle
+
+						* ~~Eat, Sleep, Code, Repeat~~
+						* Edit, Add, Commit, Repeat
+
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Sharing your code
+
+						* Now that you have your own repository, how do we go about making it available to others?
+						* This is where GitHub comes into the picture
+						* Let's host the repository you created on GitHub!
+						* Once you've created an *empty* repository on GitHub, let's add a remote named `origin` (why? we'll see later) pointing to it
+
+						```bash
+						$ git remote add origin https://github.com/<username>/myproject
+						$ git remote -v
+						```
+
+						* Let's push your commits
+
+						```bash
+						$ git push origin master
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Working on someone's repository
+
+						* Usually, only a limited set of people (project owners) have permissions push commits to the GitHub repository.
+						* How do we accept contributions from non project owners?
+						* Enter, forking and pull request (GitHub specific concepts - not technically git related)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Working on someone's repository
+
+						* Begin by forking the repository on GitHub
+						![Fork](img/fork_button.jpg)
+						* Now that you've forked the repository it should be available at [https://github.com/username/reponame](https://github.com/username/reponame)
+						* Unlike before where we had a project locally, and we pushed it to Github, this time we've to get a project from GitHub. This is called `cloning`
+
+						```bash
+						$ cd # switch to the home folder
+						$ git clone https://github.com/username/reponame
+						$ cd reponame
+						$ git remote -v
+						$ git remote add upstream https://github.com/parentusername/reponame
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Branches
+
+						* When you want to work on someone else's project, you'd want to isolate your work from the work that's done on the parent repository from which you forked (conventionally, it is called `upstream`)
+						* Hence emerges the concept of branching. For every distinct idea you want to work on, create a new branch
+
+						```bash
+						$ git checkout -b mybranch # checkout is for switching to a branch
+						# -b is to create the branch
+						$ git branch
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Branches
+
+						* Create a new file in the branch that you just created. Name it `ID.txt`, add and commit it.
+						* Now push the new branch to your forked repository in GitHub
+
+						```bash
+						$ git push origin mybranch # origin points to your fork, upstream points to parent
+						```
+						* Check your repository on GitHub, Send a Pull Request (PR)!
+						![img/pull-request.png](img/pull-request.png)
+						
+							Errata: The branch in above image should be `mybranch`
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Pull Request
+
+						* After sending the pull request, the project owners would review and comment on the changes you suggested
+						* If accepted, your PR would be accepted and the commits would be `merged`
+						* Note that a PR may have multiple commits (though many project owners prefer to have only 1 commit per PR)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### What's the catch?
+
+						* While following the previous steps, we overlooked a few things
+						* What if during the time you made the changes locally in `mybranch`, there were some changes in the same file in `upstream`?
+						* To make matters worse, what if the changes were on exactly the same lines as yours?
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### The solutions
+
+						* After committing your changes, and before pushing them to your GitHub fork, we `pull` the changes from `upstream`
+
+						```bash
+						$ git pull --rebase upstream master # master is the default branch
+						```
+
+						* Why the rebase flag? It tells git to put your recent commits aside for a while, apply the commits from upstream, and then apply your recent commits on top of them
+						* All's good, but we still might have the second problem
+						* In that scenario, git aborts with a `merge conflict`
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Merge Conflict
+
+						* merge conflicts occur when git cannot `merge` changes between automatically (since they're on the same line). They must be resolved manually
+						* Once resolved, proceed by adding the file and executing `git rebase --continue`
+						* You may then proceed to `push` changes to origin and then send a PR as before
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### But wait, there's more!
+
+						* We've covered the GitHub workflow used by most orgs, however there are a few things that remain
+						* Not as often used but they are the following - squashing (combine) multiple commits into one, editing (amend) the last commit message, creating a patch (diff file), ignoring some files
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Squashing multiple commits into one
+
+						```bash
+						$ git rebase -i HEAD~n # where n is the number of commits you want to squash
+						```
+
+						* Replace `pick` by `squash` in the editor
+						* The squashed commits may be pushed to your fork on GitHub. If you had already pushed the unsquashed ones, you'd need to push using the `-f` flag.
+						* Use `-f` flag with caution. Only force the push on the branches that you created and aren't used by others to contribute on (i.e. never force push on master!)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Amending the last commit message
+
+						```bash
+						$ git commit --amend
+						```
+
+						Again, you might have to push the amended message forcefully. Observe caution as noted before
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Creating patches
+
+						* Some organisations (GNOME and Mozilla for instance) don't use GitHub but rather use Bugzilla or Mailing Lists for reviewing code.
+						* The Pull Request concept is unique to GitHub and BitBucket. For the above, you need to attach a patch (fancy name for the diff between commits) and get it reviewed
+
+						```bash
+						$ git format-patch HEAD~n
+						```
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						### Ignoring certain files
+
+						* There might be some files within the directory that you don't want `git` to track.
+						* Add such files to a file called `.gitignore`, add and commit `.gitignore`. git won't track those files in future.
+						* `.gitignore` allows wildcards (so it's possible to ignore all files ending with .patch)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Questions / Feedback?
+
+						* The workflow might seem a bit weird but it gets quite obvious once you start contributing.
+						* Don't wait, pick up something that interests you, fork, clone, look at the issues and try sending PRs right away!
+						* There's more to git which you can look up. Cherry-picking is one which I happen to use at times but it's probably an overkill for an introductory session.
+						* gitception - since git is open source, you can contribute to git as well ;)
+						* For those who're algorithmically inclined, you might want to have a look at the diffing algorithms used by git and what data structures are used to maintain the version history.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						# Thank You!
+					</script>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
