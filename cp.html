@@ -37,6 +37,54 @@
       visibility: hidden!important;
     }
   </style>
+  <!-- "MENU" style display-->
+    <link rel="stylesheet" href="css/cp.css">
+
+  		<script type="text/javascript" >
+			function loadScripts () {
+				heights['L1V1'] = (document.getElementById('L1V1').clientHeight);
+				heights['L1V2'] = (document.getElementById('L1V2').clientHeight);
+				heights['L1V3'] = (document.getElementById('L1V3').clientHeight);
+				heights['L1V4'] = (document.getElementById('L1V4').clientHeight);
+				heights['L2V1'] = (document.getElementById('L1V1').clientHeight);
+				heights['L2V2'] = (document.getElementById('L1V2').clientHeight);
+
+				hide('L1V1');
+				hide('L1V2');
+				hide('L1V3');
+				hide('L1V4');
+				hide('L2V1');
+				hide('L2V2');
+			}
+						
+			var heights = [];
+			var openDiv;
+			function show (id) {
+				if (id === openDiv) {
+					hide(id);
+					openDiv = 'null?!';
+					return;
+				}
+				hide('L1V1');
+				hide('L1V2');
+				hide('L1V3');
+				hide('L1V4');
+				hide('L2V1');
+				hide('L2V2');
+				document.getElementById(id).style.height = heights[id] + "px";
+				document.getElementById(id).style.padding = 5;
+				setTimeout(function() {
+                    document.getElementById(id.substring(0, 2)).scrollIntoView();
+                }, 2200);
+                openDiv = id;
+			}
+			
+			function hide (id) {
+				document.getElementById(id).style.height = "1px";
+				document.getElementById(id).style.padding = 0;
+			}
+		</script>
+
   <script type="text/javascript">
   var isMobile = {
     Android: function() {
@@ -61,11 +109,12 @@
   
   function loadScript() {
     if(isMobile.any()) alert("This page currently doesn't function correctly on mobile browsers.");
+    loadScripts();
   }
 </script>
 </head>
 
-<body>
+<body onload="javascript:loadScript();">
   <!-- navbar-->
   <header class="header">
     <div role="navigation" class="navbar navbar-default">
@@ -90,40 +139,70 @@
   </header>
 
   <section class="background-gray-lightest">
-    <div class="container" style="min-height: 65vh; min-width: 994px;" onload="javascript:loadScript();">
+    <div class="container" style="min-height: 65vh; min-width: 994px;">
       <h2> Computer programming</h2>
       <h4>Disclaimer</h4>
       <p>
         The content here is unnoficial, and meant to aid the students enrolled in CS F111, Computer Programming. 
         Please use these materials as they are intended - supplementary learning aids.
       </p>
-      <h3>Lab 1
+      <h3 id="L1">Lab 1
       <a href="CPFiles/shell(tran)script.sh" class="shelltranscript" style="float: right; text-align: right;">Complete Shell (Tran)Script</a>
       </h3>
-      <h5>Video 1 - date, who, cal, man 
+      <h5><span onClick="javascript:show('L1V1');" class="minclick">Video 1 - date, who, cal, man </span>
       <a href="CPFiles/shell(tran)script1.sh" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
+      <div id="L1V1" class="min">
       <p class="lead" style="text-align: center;">
         <script data-speed="2" type="text/javascript" src="https://asciinema.org/a/3ikr40n0o49prot8ygzn7wwsp.js" id="asciicast-3ikr40n0o49prot8ygzn7wwsp" async></script>
       </p>
-      <h5>Video 2 - pwd, mkdir, clear, cd, ls
+      </div>
+      <h5> <span onClick="javascript:show('L1V2');" class="minclick">Video 2 - pwd, mkdir, clear, cd, ls</span>
       <a href="CPFiles/shell(tran)script2.sh" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
+      <div id="L1V2" class="min">
       <p class="lead" style="text-align: center;">
         <script data-speed="2" type="text/javascript" src="https://asciinema.org/a/1b0ahj8bvd7lesacoyv2ox9hw.js" id="asciicast-1b0ahj8bvd7lesacoyv2ox9hw" async></script>
       </p>
-      <h5>Video 3 - echo, >, >>, cat, cp, mv, rm
+      </div>
+      <h5> <span onClick="javascript:show('L1V3');" class="minclick">Video 3 - echo, >, >>, cat, cp, mv, rm</span>
       <a href="CPFiles/shell(tran)script3.sh" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
+      <div id="L1V3" class="min">
       <p class="lead" style="text-align: center;">
       <script data-speed="2" type="text/javascript" src="https://asciinema.org/a/7zi9v8ql202osc0mshexq3ccq.js" id="asciicast-7zi9v8ql202osc0mshexq3ccq" async></script>
       </p>
-      <h5>Video 4 - tips for proficiency and speed (and lab marks)
+      </div>
+      <h5> <span onClick="javascript:show('L1V4');" class="minclick">Video 4 - tips for proficiency and speed (and lab marks) </span>
       <a href="CPFiles/shell(tran)script4.sh" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
+      <div id="L1V4" class="min">
       <p class="lead" style="text-align: center;">
       <script data-speed="2" type="text/javascript" src="https://asciinema.org/a/9vo9wncvz74sp1lh8lwhsohyk.js" id="asciicast-9vo9wncvz74sp1lh8lwhsohyk" async></script>
       </p>
+      </div>
+      
+      <h3 id="L2">Lab 2
+      <a href="#" class="shelltranscript" style="float: right; text-align: right;">Complete Shell (Tran)Script</a>
+      </h3>
+      <h5><span onClick="javascript:show('L2V1');" class="minclick">Video 1 - (coming soon) </span>
+      <a href="#" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
+      </h5>
+      <div id="L2V1" class="min">
+      <p class="lead" style="text-align: center;">
+        <!--script data-speed="2" type="text/javascript" src="https://asciinema.org/a/3ikr40n0o49prot8ygzn7wwsp.js" id="asciicast-3ikr40n0o49prot8ygzn7wwsp" async></script-->
+        Coming Soon
+      </p>
+      </div>
+      <h5><span onClick="javascript:show('L2V2');" class="minclick">Video 2 - (coming soon) </span>
+      <a href="#" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
+      </h5>
+      <div id="L2V2" class="min">
+      <p class="lead" style="text-align: center;">
+        <!--script data-speed="2" type="text/javascript" src="https://asciinema.org/a/3ikr40n0o49prot8ygzn7wwsp.js" id="asciicast-3ikr40n0o49prot8ygzn7wwsp" async></script-->
+        Coming Soon
+      </p>
+      </div>
     </div>
   </section>
 

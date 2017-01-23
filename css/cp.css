@@ -1,0 +1,68 @@
+/*Opera Fix*/
+body:before {/* thanks to Maleika (Kohoutec)*/
+	content:"";
+	height:100%;
+	float:left;
+	width:0;
+	margin-top:-32767px;/* thank you Erik J - negate effect of float*/
+}
+
+hr {
+	border: 0 !important;
+	height: 1px !important;
+	background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)) !important;
+	background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)) !important;
+	background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)) !important;
+	background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)) !important;
+	background-color: transparent !important;
+	width: 100% !important;
+	padding: 0 !important;
+	margin: 10px 0 !important;
+}
+		
+hr {
+	border: 0;
+	background: #999;
+	width: 90%;
+	height: 1px;
+	padding: 0;
+	margin: 10px auto;
+}
+
+.min {
+	!height: 2px;
+	!background-color: rgba(20,20,200,0.4);
+	background-color: white;
+	background-color: #ddd;
+	color: black;
+	!border-radius: 5px;
+	overflow: hidden;
+	transition: height 2s linear, padding 0.5s ease-in-out 0.75s;
+	-moz-transition: height 2s linear, padding 0.5s ease-in-out 0.75s;
+	-webkit-transition: height 2s linear, padding 0.5s ease-in-out 0.75s;
+	-ms-transition: height 2s linear, padding 0.5s ease-in-out 0.75s;
+	-o-transition: height 2s linear, padding 0.5s ease-in-out 0.75s;
+	-khtml-transition: height 2s linear, padding 0.5s ease-in-out 0.75s;
+}
+
+.minclick {
+	text-align: left;
+	cursor: pointer;
+	margin: 5px 0;
+	padding: 5px 0;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.minclick:hover {
+	text-decoration: underline;
+}
+
+h3 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
