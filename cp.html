@@ -71,6 +71,9 @@
 				hide('L1V4');
 				hide('L2V1');
 				hide('L2V2');
+				if (heights[id] < 613) {
+					heights[id] = 613;
+				}
 				document.getElementById(id).style.height = heights[id] + "px";
 				document.getElementById(id).style.padding = 5;
 				setTimeout(function() {
