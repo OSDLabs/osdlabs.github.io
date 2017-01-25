@@ -42,14 +42,14 @@
 
   		<script type="text/javascript" >
 			function loadScripts () {
-				heights['L1V1'] = (document.getElementById('L1V1').clientHeight);
-				heights['L1V2'] = (document.getElementById('L1V2').clientHeight);
-				heights['L1V3'] = (document.getElementById('L1V3').clientHeight);
-				heights['L1V4'] = (document.getElementById('L1V4').clientHeight);
-				heights['L2V1'] = (document.getElementById('L1V1').clientHeight);
-				heights['L2V2'] = (document.getElementById('L1V2').clientHeight);
-				heights['L2V3'] = (document.getElementById('L1V3').clientHeight);
-				heights['L2V4'] = (document.getElementById('L1V4').clientHeight);
+				heights['L1V1'] = 613;//(document.getElementById('L1V1').clientHeight);
+				heights['L1V2'] = 613;//(document.getElementById('L1V2').clientHeight);
+				heights['L1V3'] = 613;//(document.getElementById('L1V3').clientHeight);
+				heights['L1V4'] = 613;//(document.getElementById('L1V4').clientHeight);
+				heights['L2V1'] = 502;//(document.getElementById('L1V1').clientHeight);
+				heights['L2V2'] = 502;//(document.getElementById('L1V2').clientHeight);
+				heights['L2V3'] = 726;//(document.getElementById('L1V3').clientHeight);
+				heights['L2V4'] = 726;//(document.getElementById('L1V4').clientHeight);
 
 				hide('L1V1');
 				hide('L1V2');
@@ -77,9 +77,9 @@
 				hide('L2V2');
 				hide('L2V3');
 				hide('L2V4');
-				if (heights[id] < 613) {
-					heights[id] = 613;
-				}
+				//if (heights[id] < 613) {
+				//	heights[id] = 613;
+				//}
 				document.getElementById(id).style.height = heights[id] + "px";
 				document.getElementById(id).style.padding = 5;
 				setTimeout(function() {
@@ -194,7 +194,7 @@
       <h3 id="L2">Lab 2
       <a href="#" class="shelltranscript" style="float: right; text-align: right;">Complete Shell (Tran)Script</a>
       </h3>
-      <h5><span onClick="javascript:show('L2V1');" class="minclick">Video 1 - redirection refresher </span>
+      <h5><span onClick="javascript:show('L2V1');" class="minclick">Video 1 - IO redirection refresher </span>
       <a href="#" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
       <div id="L2V1" class="min">
@@ -202,7 +202,7 @@
 	<script data-speed="3" type="text/javascript" src="https://asciinema.org/a/6f6wn373j8oygph4p7bch5ph1.js" id="asciicast-6f6wn373j8oygph4p7bch5ph1" async></script>
       </p>
       </div>
-      <h5><span onClick="javascript:show('L2V2');" class="minclick">Video 2 - (coming soon) </span>
+      <h5><span onClick="javascript:show('L2V2');" class="minclick">Video 2 - <code>sort</code>, <code>xinput</code>, <code>wc</code>, <code>head</code>, <code>tail</code> </span>
       <a href="#" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
       <div id="L2V2" class="min">
@@ -210,7 +210,7 @@
         <script data-speed="3" type="text/javascript" src="https://asciinema.org/a/annamb56kp12kaj0ze6gnfxjo.js" id="asciicast-annamb56kp12kaj0ze6gnfxjo" async></script>
       </p>
       </div>
-      <h5><span onClick="javascript:show('L2V3');" class="minclick">Video 3 - (coming soon) </span>
+	    <h5><span onClick="javascript:show('L2V3');" class="minclick">Video 3 - Pipes and <code>grep</code> </span>
       <a href="#" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
       <div id="L2V3" class="min">
@@ -218,7 +218,7 @@
 	<script data-speed="3" type="text/javascript" src="https://asciinema.org/a/au3tc1b29hkzbdlegn94dq0mp.js" id="asciicast-au3tc1b29hkzbdlegn94dq0mp" async></script>
       </p>
       </div>
-      <h5><span onClick="javascript:show('L2V4');" class="minclick">Video 4 - (coming soon) </span>
+      <h5><span onClick="javascript:show('L2V4');" class="minclick">Video 4 - Wildcard Problems </span>
       <a href="#" class="shelltranscript" style="float: right; text-align: right;">Shell (Tran)Script</a>
       </h5>
       <div id="L2V4" class="min">
