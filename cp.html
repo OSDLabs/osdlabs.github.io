@@ -52,8 +52,10 @@
 				heights['L2V4'] = 726;//(document.getElementById('L1V4').clientHeight);
 				heights['L3V1'] = 726;//(document.getElementById('L1V3').clientHeight);
 				heights['L3V2'] = 726;//(document.getElementById('L1V4').clientHeight);
-                heights['L3V3'] = 726;//(document.getElementById('L1V3').clientHeight);
+                		heights['L3V3'] = 726;//(document.getElementById('L1V3').clientHeight);
 				heights['L3V4'] = 726;//(document.getElementById('L1V4').clientHeight);
+				heights['L4V1'] = 726;//(document.getElementById('L1V4').clientHeight);
+				heights['L4V2'] = 726;//(document.getElementById('L1V4').clientHeight);
 
 				hide('L1V1');
 				hide('L1V2');
@@ -67,6 +69,8 @@
 				hide('L3V2');
 				hide('L3V3');
 				hide('L3V4');
+				hide('L4V1');
+				hide('L4V2');
 			}
 						
 			var heights = [];
@@ -89,6 +93,8 @@
 				hide('L3V2');
 				hide('L3V3');
 				hide('L3V4');
+				hide('L4V1');
+				hide('L4V2');
 				//if (heights[id] < 613) {
 				//	heights[id] = 613;
 				//}
@@ -271,8 +277,20 @@
       </div>
       <h3 id="L4">Lab 4
       </h3>
-	<h5>Coming soon...
-	</h5>
+      <h5><span onClick="javascript:show('L4V1');" class="minclick">Screencast 1 - Intro to Conditional statements and if-else </span>
+      </h5>
+      <div id="L4V1" class="min">
+      <p class="lead" style="text-align: center;">
+      <script data-speed="3" type="text/javascript" src="https://asciinema.org/a/bq0vxrfa4w620vpow5looev33.js" id="asciicast-bq0vxrfa4w620vpow5looev33" async></script>
+      </p>
+      </div>
+      <h5><span onClick="javascript:show('L4V2');" class="minclick">Screencast 2 - Switch statements</span>
+      </h5>
+      <div id="L4V2" class="min">
+      <p class="lead" style="text-align: center;">
+        <script data-speed="2" type="text/javascript" src="https://asciinema.org/a/c89nwo90mcqbwyer9iqcm1kt7.js" id="asciicast-c89nwo90mcqbwyer9iqcm1kt7" async></script>
+      </p>
+      </div>
 	
     </div>
   </section>
