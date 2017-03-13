@@ -81,7 +81,7 @@
 				heights['L7V1'] = 750;//(document.getElementById('L1V4').clientHeight);
 				heights['L7V2'] = 750;//(document.getElementById('L1V4').clientHeight);
 				heights['L7V3'] = 750;//(document.getElementById('L1V4').clientHeight);
-				
+				heights['L7V4'] = 500;
 
 				hide('L1V1');
 				hide('L1V2');
@@ -105,6 +105,7 @@
 				hide('L7V1');
 				hide('L7V2');
 				hide('L7V3');
+				hide('L7V4');
 			}
 						
 			var heights = [];
@@ -137,6 +138,7 @@
 				hide('L7V1');
 				hide('L7V2');
 				hide('L7V3');
+				hide('L7V4');
 				//if (heights[id] < 613) {
 				//	heights[id] = 613;
 				//}
@@ -403,6 +405,36 @@
 	      <script data-speed='3' type="text/javascript" src="https://asciinema.org/a/0ckipraeexi9w37kqxi1xotke.js" id="asciicast-0ckipraeexi9w37kqxi1xotke" async></script>	   
 	   </p>	 	
 	</div>    
+	
+	<h5>  <span onClick="javascript:show('L7V4');" class="minclick"> Challenge 1 </span>
+        </h5>
+	<div id="L7V4" class="min" style="background-color: inherit; font-size: 16px;">
+       <p>
+            We received a question about pointers on <a href="bitsgoacodes.slack.com" target="_blank">our slack channel</a> 
+            from Tanmay Dixit recently. While the solution has been posted there, it would be nice if you could try this out.
+            <br><br>
+            Question: Predict the output of the following code snippet:
+            </p>
+            <pre style="height: 200px;">
+            <code class="language-c">
+                #include &lt;stdio.h&gt;
+
+                int main () {
+                	int c[3] = {4, 5, 6}; // an array is basically a pointer to the first element
+                	void *d = c; // cast int* to void*
+                	d += 1; // increment the void pointer
+                	printf("%08x\n", *((int *)d));
+                }
+            </code>
+            </pre>
+            <p>
+            Now run it and see if you got the answer correct. <a href="https://gist.github.com/kaivalyar/05b20df01eb17a8dccb45f5c556e4c2b">Here</a> is a simulation you can run that explains the output.
+            (Download the gist, compile with <code>gcc simulation.c -w</code> and run with <code>./a.out</code>.)<br><br>
+            If you have a better or simpler simulation, please leave a comment on the gist link.<br>
+            If you would like to help build future screencasts, message @kaivalyar or @garvit_gupta on <a href="bitsgoacodes.slack.com" target="_blank">slack</a>.
+	   </p>	 	
+	</div>
+	
 	
     </div>
   </section>
